@@ -16,28 +16,24 @@ public class FineController {
     @Autowired
     private FineService fineService;
 
-    // Add a new fine
     @PostMapping("/add")
     public ResponseEntity<VehicleFine> addFine(@RequestBody VehicleFine fine) {
         VehicleFine savedFine = fineService.addFine(fine);
         return ResponseEntity.ok(savedFine);
     }
 
-    // Get all fines
     @GetMapping
     public ResponseEntity<List<VehicleFine>> getAllFines() {
         List<VehicleFine> fines = fineService.getAllFines();
         return ResponseEntity.ok(fines);
     }
 
-    // Get fines by vehicle number
     @GetMapping("/vehicle/{vehicleNumber}")
     public ResponseEntity<List<VehicleFine>> getFinesByVehicle(@PathVariable String vehicleNumber) {
         List<VehicleFine> fines = fineService.getFinesByVehicleNumber(vehicleNumber);
         return ResponseEntity.ok(fines);
     }
 
-    // Pay fine (update status to PAID)
     @PutMapping("/pay/{id}")
     public ResponseEntity<VehicleFine> payFine(@PathVariable Long id) {
         VehicleFine updatedFine = fineService.payFine(id);
@@ -47,7 +43,6 @@ public class FineController {
         return ResponseEntity.notFound().build();
     }
 
-    // Delete fine
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFine(@PathVariable Long id) {
         boolean deleted = fineService.deleteFine(id);

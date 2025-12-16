@@ -10,14 +10,13 @@ import java.util.Map;
 @CrossOrigin(origins = "*")
 public class AuthController {
 
-    // Hard-coded admin credentials
     private static final String ADMIN_USERNAME = "admin";
     private static final String ADMIN_PASSWORD = "admin123";
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody Map<String, String> credentials) {
         Map<String, Object> response = new HashMap<>();
-        
+
         String username = credentials.get("username");
         String password = credentials.get("password");
 

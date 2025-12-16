@@ -1,19 +1,17 @@
 package com.traffic.model;
 
 public class VehicleFine {
-    
+
     private Long id;
     private String vehicleNumber;
     private String violationType;
     private double fineAmount;
     private String date;
-    private String paymentStatus; // PAID or UNPAID
+    private String paymentStatus;
 
-    // Default Constructor
     public VehicleFine() {}
 
-    // Parameterized Constructor
-    public VehicleFine(Long id, String vehicleNumber, String violationType, 
+    public VehicleFine(Long id, String vehicleNumber, String violationType,
                        double fineAmount, String date, String paymentStatus) {
         this.id = id;
         this.vehicleNumber = vehicleNumber;
@@ -23,7 +21,6 @@ public class VehicleFine {
         this.paymentStatus = paymentStatus;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
